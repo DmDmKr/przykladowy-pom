@@ -20,8 +20,13 @@ namespace PrzykładowyPOM
 
         internal ProductPage GoToProduct(string productName)
         {
-            _driver.FindElement(By.CssSelector("ul#homefeatured img[title='" + productName + "']")).Click();
+            _driver.FindElement(GetProductLocator(productName)).Click();
             return new ProductPage(_driver);
+        }
+
+        private By GetProductLocator(string productName)
+        {
+            return By.CssSelector("ul#homefeatured img[title='" + productName + "']");
         }
     }
 }

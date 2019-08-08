@@ -12,9 +12,12 @@ namespace PrzykładowyPOM
             _driver = driver;
         }
 
+        private By _itemRow = By.CssSelector("tbody>tr");
+
+
         internal int GetNumberOfItems()
         {
-            return _driver.FindElements(By.CssSelector("tbody>tr")).Count;
+            return _driver.FindElements(_itemRow).Count;
         }
     }
 }
